@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
 
     public CharacterController2D controller;
     public Animator animator;
-
+    
+    
     float horizontalMove = 0f;
     public float runSpeed = 40f;
 
@@ -25,13 +26,14 @@ public class Movement : MonoBehaviour
             jump = true;
         }
 
-        if (Input.GetButtonDown("Charge")) 
+        if (Input.GetButtonDown("charge")) 
         {
             charge = true;
-        } else if (Input.GetButtonUp("Charge")) 
+        } else if (Input.GetButtonUp("charge")) 
         {
             charge = false;
         }
+
     }
 
     void FixedUpdate()
@@ -39,4 +41,5 @@ public class Movement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, charge, jump);
         jump = false;
     }
+
 }
